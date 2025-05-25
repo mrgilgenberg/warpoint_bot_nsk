@@ -1,0 +1,9 @@
+python-dotenv~=1.0.0
+aioschedule~=0.5.2
+asyncpg==0.28.0
+SQLAlchemy==2.0.39
+aiogram~=2.25.1
+requests==2.32.3
+pydantic-extra-types==2.10.3
+pydantic-settings==2.8.1
+pydantic~=2.11.5

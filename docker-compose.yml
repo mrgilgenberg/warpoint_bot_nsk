@@ -1,0 +1,19 @@
+services:
+  ${CONTAINER_NAME}:
+    build:
+      dockerfile: docker/python/Dockerfile
+    container_name: ${CONTAINER_NAME}
+    hostname: ${CONTAINER_NAME}
+    environment:
+      - TZ=Asia/Novosibirsk
+    restart: always
+    volumes:
+      - ${LOG_FOLDER_PATH}:/var/log/
+    networks:
+      one_network_host:
+        aliases:
+          - ${CONTAINER_NAME}
+
+networks:
+  one_network_host:
+    name: one_network_host
