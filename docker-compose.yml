@@ -1,5 +1,5 @@
 services:
-  ${CONTAINER_NAME}:
+  warpoint:
     build:
       dockerfile: docker/python/Dockerfile
     container_name: ${CONTAINER_NAME}
@@ -8,7 +8,7 @@ services:
       - TZ=Asia/Novosibirsk
     restart: always
     volumes:
-      - ${LOG_FOLDER_PATH}:/var/log/
+      - ${LOG_PATH}:/var/log/
     networks:
       one_network_host:
         aliases:
