@@ -26,9 +26,17 @@ async def start_registered(message: Message, state: FSMContext):
         )
         await message.delete()
 
-        await message.answer(
-            text=f'{user.vc_full_name} {bot_answers.start_registered}'
-        )
+        if user.d_birthday:
+            await message.answer(
+                text=f'{user.vc_full_name} {bot_answers.start_registered}'
+            )
+        else:
+            await Registration.input_full_name.set()
+
+            await message.answer_photo(
+                photo=bot_content.first_message_photo_file_id,
+                caption=bot_answers.start_input_full_name
+            )
     except Exception as e:
         logger.error(traceback.format_exc())
 
